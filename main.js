@@ -1,17 +1,21 @@
 $(document).ready(function () { //on DOM ready, bind clicks
+
 	// Validate min and max numbers
 	$("input[max], input[min]").on("keyup", function (e) { //any input that has a min or max defined
+
 		let ele = $(this), //the input field we're typing in
 			min = ele.attr("min"), //grab the minimum value as defined
 			max = ele.attr("max"), //grab the maximum value as defined
 			type = ele.attr("type"), //grab the type of input this is
 			value = ele.val(), //grab the value as entered
 			container = ele.closest("div");
+
 		/*
 			WE NEED TO CHECK THE FIELD TYPE. DIFFERENT TYPES CAN HAVE
 			MIN/MAX VALUES AND WE MAY NOT WANT TO
 			HANDLE EACH THE SAME WAY
 		*/
+
 		if (type === "number") {
 			if (min) { //if a minimum value was defined
 				min = parseFloat(min); //because this is a number make it a float
